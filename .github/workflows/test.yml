@@ -1,0 +1,20 @@
+name: Deploy NurturCare Dev App to EC2
+on:
+  push:
+    branches:
+      - master
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Build and Deploy on EC2
+      uses: appleboy/ssh-action@v0.1.4
+      with:
+        host: ${{ secrets.QA_HOST }}
+        username: ${{ secrets.DEV_USER }}
+        key: ${{ secrets.SSH_KEY }}
+        script: |
+            cd /home/ubuntu
+            ./deploy.sh
