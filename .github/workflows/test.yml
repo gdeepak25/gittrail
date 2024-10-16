@@ -16,5 +16,5 @@ jobs:
         username: ${{ secrets.DEV_USER }}
         key: ${{ secrets.SSH_KEY }}
         script: |
-            cd /home/*
+            cd /home/ubuntu
             ./deploy.sh
