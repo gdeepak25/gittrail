@@ -15,7 +15,6 @@ jobs:
         host: ${{ secrets.QA_HOST }}
         username: ${{ secrets.DEV_USER }}
         key: ${{ secrets.SSH_KEY }}
-        TARGET: ${{ secrets.TARGET_DIR }}
         script: |
             cd /home/ubuntu
             ./deploy.sh
